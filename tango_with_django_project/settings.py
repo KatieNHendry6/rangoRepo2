@@ -28,7 +28,12 @@ SECRET_KEY = 'gitb=xepgl9^t#5aa+1e-ux1pwgs_+2)%3xat&i*#+u=2i_dut'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+# PASSWORD_HASHERS = (
+#     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+#     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+# )
+
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -96,6 +101,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': { 'min_length': 6, }
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -103,6 +109,13 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+]
+
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hashers.BCryptPasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
 ]
 
 
@@ -122,6 +135,7 @@ USE_TZ = True
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
+LOGIN_URL = 'rango:login'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
