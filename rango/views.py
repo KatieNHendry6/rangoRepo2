@@ -24,7 +24,9 @@ def index(request):
 
 
 def about(request):
-    return render(request, 'rango/about.html')
+    print(request.method)
+    print(request.user)
+    return render(request, 'rango/about.html', {})
 
 
 def show_category(request, category_name_slug):
@@ -73,7 +75,7 @@ def add_page(request, category_name_slug):
         category = None
 
     if category is None:
-        return redirect('/rango/')
+        return redirect(reverse('rango:index'))
 
     form = PageForm()
 
