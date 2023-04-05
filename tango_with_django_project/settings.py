@@ -33,7 +33,7 @@ DEBUG = True
 #     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
 # )
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
